@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="shortcut icon" href="./Assets/Images/favicon.png" type="image/x-icon">
 </head>
+
 <body>
-    <h1>THE MOVIE APP</h1>
-    <input type="text" placeholder="Search here!" id="inputSearch">
+    <div id="cover">
+        <img src="./Assets/Images/facebook_cover_photo_2.png" alt="cover">
+    </div>
 
-    <section>
+    <header>
+        <img src="./Assets/Images/logo_transparent.png" alt="logo">
+        <h1>THE MOVIE APP</h1>
+    </header>
 
-    </section>
-    
 
-    <script src="./index.js"></script>
+    <main>
+        <nav>
+            <input type="text" placeholder="Search here!" id="inputSearch">
+            <!-- <button id="home">Home</button>
+            <button id="lists">Show's list</button> -->
+        </nav>
+
+        <section class="body-container">
+            <article id="allShows"></article>
+            <article id="showList"></article>
+        </section>
+    </main>
+
+
+
+    <script src="./JS/index.js"></script>
 </body>
+
 </html>
