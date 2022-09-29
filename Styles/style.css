@@ -232,4 +232,7 @@ li {
     header img {
         display: block;
     }
+    .show {
+        width: 45%;
+    }
 }
