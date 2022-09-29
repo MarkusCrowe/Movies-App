@@ -1,10 +1,11 @@
-
+// Variables
 const results = document.querySelector("body-container");
 let showsData = [];
 let sortMethod = "";
 let clickButtonSort = 0;
 let clickButtonList = 0;
 
+// Function to fetch the data of the API and display it in a random order
 async function fetchMovie() {
     await fetch(`https://api.tvmaze.com/shows`)
     .then((res) => res.json())
@@ -16,6 +17,7 @@ async function fetchMovie() {
     displayShows();
 };
 
+// function to display the data, filter it and sort it
 function displayShows() {
     // showsData.length = 6;
     allShows.innerHTML = showsData
@@ -42,6 +44,7 @@ function displayShows() {
     ).join("");
 };
 
+// Function to display the list of the shows
 function displayList() {
     showList.innerHTML = showsData
         .sort((a, b) => {
@@ -54,6 +57,7 @@ function displayList() {
     ).join("");
 };
 
+// At the loading of the website we display a picture before granting access to the content
 window.addEventListener("load", () => {
     setTimeout(() => {
         cover.style.opacity = "0";
@@ -64,8 +68,10 @@ window.addEventListener("load", () => {
     fetchMovie();
 });
 
+// When anything is written in the input it display the corresponding content
 inputSearch.addEventListener("input", displayShows);
 
+// When clicking the button it sort the content in a-z or z-a
 alpha.addEventListener("click", (e) => {
     if (clickButtonSort === 0) {
         sortMethod = e.target.id;
@@ -80,12 +86,14 @@ alpha.addEventListener("click", (e) => {
     }
 });
 
+// Upon clicking the button the content is scrambled
 scramble.addEventListener("click", (e) => {
     sortMethod = "";
     showsData.sort(() => Math.random() - 0.5);
     displayShows();
 });
 
+// Upon clicking the button display the list of shows
 list.addEventListener("click", (e) => {
     if (clickButtonList === 0) {
         allShows.remove();
@@ -96,9 +104,6 @@ list.addEventListener("click", (e) => {
         scramble.style.opacity = 0;
         clickButtonList++
     } else {
-        // console.log(e);
         location.reload();
-        // clickButtonList = 0;
     }
 });
-

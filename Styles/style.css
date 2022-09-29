@@ -11,6 +11,32 @@ body {
     height: 100vh;
     position: relative;
 }
+main {
+    display: flex;
+}
+/************************************************************************************/
+/********************************** OPENING *****************************************/
+/************************************************************************************/
+#cover {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s all;
+}
+#cover img {
+    width: 100%;
+    transition: 0.5s all;
+}
+/************************************************************************************/
+/*********************************** HEADER *****************************************/
+/************************************************************************************/
 header {
     border-bottom: 1px solid white;
     height: 15vh;
@@ -34,9 +60,22 @@ header img {
     height: 120px;
     transform: translateY(-50%);
 }
-main {
-    display: flex;
+input {
+    position: absolute;
+    right: 10px;
+    display: block;
+    width: 200px;
+    margin: 50px auto;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 400;
+    border: 2px solid rgb(113, 113, 135);
+    border-radius: 10px;
 }
+/************************************************************************************/
+/************************************* NAV ******************************************/
+/************************************************************************************/
 nav {
     width: 20%;
     height: 85vh;
@@ -73,24 +112,14 @@ button:hover {
     color: whitesmoke;
     cursor: pointer;
 }
+/************************************************************************************/
+/************************************* BODY *****************************************/
+/************************************************************************************/
 .body-container {
     width: 80%;
     padding: 20px 0 0;
     overflow: scroll;
     height: 80vh;
-}
-input {
-    position: absolute;
-    right: 10px;
-    display: block;
-    width: 200px;
-    margin: 50px auto;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 1.2rem;
-    font-weight: 400;
-    border: 2px solid rgb(113, 113, 135);
-    border-radius: 10px;
 }
 #allShows{    
     display: flex;
@@ -98,7 +127,6 @@ input {
     justify-content: space-around;
     width: 100%;
 }
-
 .show {
     background: rgb(113, 113, 135);
     width: 225px;
@@ -135,24 +163,6 @@ p:last-child {
 p{
     margin-bottom: 10px;
 }
-#cover {
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s all;
-}
-#cover img {
-    width: 100%;
-    transition: 0.5s all;
-}
-
 .description {
     position: absolute;
     background: rgba(0, 0, 0, 0.531);
@@ -174,11 +184,9 @@ p{
 }
 .description p {
     padding: 0 10px;
-
     font-size: 0.8rem;
     text-align: justify;
 }
-
 .showList {
     padding: 15px;
     height: 1500px;
@@ -193,7 +201,9 @@ li {
 .active {
     display: none;
 }
-
+/************************************************************************************/
+/******************************** RESPONSIVE ****************************************/
+/************************************************************************************/
 @media screen and (max-width: 1000px) {
     main {
         position: relative;
@@ -215,7 +225,6 @@ li {
     }
 
 }
-
 @media screen and (max-width: 450px) {
     header h1 {
         display: none;
