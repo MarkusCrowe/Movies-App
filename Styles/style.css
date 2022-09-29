@@ -24,6 +24,7 @@ header h1{
     letter-spacing: 2px;
     text-align: center;
     text-decoration: underline;
+    position: relative;
 }
 header img {
     position: absolute;
@@ -67,8 +68,10 @@ button:hover {
     height: 80vh;
 }
 input {
+    position: absolute;
+    right: 10px;
     display: block;
-    width: 80%;
+    width: 200px;
     margin: 50px auto;
     text-align: center;
     text-transform: capitalize;
@@ -203,6 +206,9 @@ li {
 
 @media screen and (max-width: 450px) {
     header h1 {
-        font-size: 1.5rem;
+        display: none;
+    }
+    header img {
+        display: block;
     }
 }
