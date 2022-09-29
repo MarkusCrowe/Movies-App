@@ -1,7 +1,9 @@
 
-const results = document.getElementById("allShows");
-const showsList = document.getElementById("showList");
+const results = document.querySelector("body-container");
 let showsData = [];
+let sortMethod = "";
+let clickButtonSort = 0;
+let clickButtonList = 0;
 
 async function fetchMovie() {
     await fetch(`https://api.tvmaze.com/shows`)
@@ -12,13 +14,20 @@ async function fetchMovie() {
 
     console.log(showsData[7]);
     displayShows();
-}
+};
 
 function displayShows() {
     // showsData.length = 6;
-    results.innerHTML = showsData
+    allShows.innerHTML = showsData
         .filter((show) => 
             show.name.toLowerCase().includes(inputSearch.value.toLowerCase()))
+        .sort((a, b) => {
+            if (sortMethod === "alpha") {
+                return a.name.localeCompare(b.name);
+            } else if (sortMethod === "invertAlpha") {
+                return b.name.localeCompare(a.name)
+            }
+        })
         .map((show) =>
         `
             <div class="show">
@@ -31,12 +40,23 @@ function displayShows() {
             </div>
         `
     ).join("");
-}
+};
+
+function displayList() {
+    showList.innerHTML = showsData
+        .sort((a, b) => {
+            return a.name.localeCompare(b.name);
+        })
+        .map((show) =>
+        `
+            <li>${show.name}</li>
+        `
+    ).join("");
+};
 
 window.addEventListener("load", () => {
     setTimeout(() => {
         cover.style.opacity = "0";
-        // cover.remove();
     }, 1000);
     setTimeout(() => {
         cover.remove();
@@ -46,25 +66,39 @@ window.addEventListener("load", () => {
 
 inputSearch.addEventListener("input", displayShows);
 
+alpha.addEventListener("click", (e) => {
+    if (clickButtonSort === 0) {
+        sortMethod = e.target.id;
+        displayShows();
+        alpha.innerHTML = "Invert Order";
+        clickButtonSort++;
+    } else {
+        sortMethod = "invertAlpha";
+        displayShows();
+        alpha.innerHTML = "Alphabetical Order";
+        clickButtonSort = 0;
+    }
+});
 
+scramble.addEventListener("click", (e) => {
+    sortMethod = "";
+    showsData.sort(() => Math.random() - 0.5);
+    displayShows();
+});
 
-// lists.addEventListener("click", () => {
-//     results.remove();
+list.addEventListener("click", (e) => {
+    if (clickButtonList === 0) {
+        allShows.remove();
+        displayList();
+        showList.classList.add("showList");
+        list.innerHTML = "Home";
+        alpha.style.opacity = 0;
+        scramble.style.opacity = 0;
+        clickButtonList++
+    } else {
+        // console.log(e);
+        location.reload();
+        // clickButtonList = 0;
+    }
+});
 
-//     showsList.innerHTML = showsData
-//         .filter((show) => 
-//             show.name.toLowerCase().includes(inputSearch.value.toLowerCase()))
-//         .map((show) =>
-//         `
-//             <ul>
-//                 <li>${show.name}</li>
-//             </ul>
-//         `
-// ).join("");
-// });
-
-{/* <h2>${show.name}</h2>
-                <div class="summary">
-                    <p>${show.summary}</p>
-                    <p>${show.status}</p>
-                </div> */}
