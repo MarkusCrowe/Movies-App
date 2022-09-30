@@ -134,6 +134,7 @@ button:hover {
     border-radius: 5px;
     transition: 0.5s all;
     position: relative;
+    user-select: none;
 }
 .show:hover {
     transform: scale(1.1);
