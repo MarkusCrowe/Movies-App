@@ -90,7 +90,7 @@ a {
     color: white;
     text-decoration: none;
 }
-i {
+nav i {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -107,7 +107,7 @@ button {
     transition: 0.3s all;
 }
 button:hover {
-    background: black;
+    background: rgb(28, 28, 28);;
     border: 2px solid whitesmoke;
     color: whitesmoke;
     cursor: pointer;
@@ -165,7 +165,7 @@ p{
 }
 .description {
     position: absolute;
-    background: rgba(0, 0, 0, 0.531);
+    background: rgba(0, 0, 0, 0.65);
     top: 0;
     right: 0;
     width: 100%;
@@ -197,9 +197,6 @@ p{
 }
 li {
     margin-bottom: 5px;
-}
-.active {
-    display: none;
 }
 /************************************************************************************/
 /******************************** RESPONSIVE ****************************************/
