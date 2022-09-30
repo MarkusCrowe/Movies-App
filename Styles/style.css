@@ -126,6 +126,7 @@ button:hover {
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
+    scrollbar-width: none;
 }
 .show {
     background: rgb(113, 113, 135);
@@ -175,6 +176,7 @@ p{
     border-radius: 5px;
     transition: 0.5s all;
     overflow: scroll;
+    scrollbar-width: none;
 }
 .show:hover .description {
     opacity: 1;
@@ -199,6 +201,10 @@ p{
 li {
     margin-bottom: 5px;
 }
+::-webkit-scrollbar {
+    display: none;
+ }
+    
 /************************************************************************************/
 /******************************** RESPONSIVE ****************************************/
 /************************************************************************************/
