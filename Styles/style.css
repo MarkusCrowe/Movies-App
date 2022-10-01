@@ -60,14 +60,16 @@ header img {
     height: 120px;
     transform: translateY(-50%);
 }
-input {
+form {
     position: absolute;
+    top: 50%;
     right: 10px;
-    display: block;
+    transform: translateY(-50%);
+}
+input {
     width: 200px;
-    margin: 50px auto;
     text-align: center;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     font-size: 1.2rem;
     font-weight: 400;
     border: 2px solid rgb(113, 113, 135);
@@ -116,12 +118,12 @@ button:hover {
 /************************************* BODY *****************************************/
 /************************************************************************************/
 .body-container {
-    width: 80%;
+    width: 100%;
     padding: 20px 0 0;
     overflow: scroll;
     height: 80vh;
 }
-#allShows{    
+#result{    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -204,7 +206,6 @@ li {
 ::-webkit-scrollbar {
     display: none;
  }
-    
 /************************************************************************************/
 /******************************** RESPONSIVE ****************************************/
 /************************************************************************************/
@@ -229,7 +230,7 @@ li {
     }
 
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 700px) {
     header h1 {
         display: none;
     }

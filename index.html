@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie App</title>
-    <link rel="stylesheet" href="./Styles/style.css" />
-    <link
-      rel="shortcut icon"
-      href="./Assets/Images/favicon.png"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    />
-  </head>
-
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Styles/style.css">
+</head>
+<body>
     <div id="cover">
-      <img src="./Assets/Images/facebook_cover_photo_2.png" alt="cover" />
+        <img src="./Assets/Images/facebook_cover_photo_2.png" alt="cover" />
     </div>
 
     <header>
-      <img src="./Assets/Images/logo_transparent.png" alt="logo" />
-      <h1>THE MOVIE APP</h1>
-      <input type="text" placeholder="Search here!" id="inputSearch" />
+        <img src="./Assets/Images/logo_transparent.png" alt="logo" />
+        <h1>THE MOVIE APP</h1>
+        <form action="">
+            <input type="text" id="search" placeholder="ex : Naruto">
+        </form>
     </header>
 
     <main>
-      <nav>
-        <button id="list">Show's List</button>
-        <button id="alpha">Alphabetical Order</button>
-        <button id="scramble">Scramble</button>
-        <a href="https://github.com/MarkusCrowe/Movies-App" target="_blank"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-      </nav>
+        <!-- <nav>
+           <button id="list">Show's List</button> -->
+          <!-- <button id="alpha">Alphabetical Order</button> -->
+          <!-- <button id="scramble">Scramble</button> -->
+          <!-- <a href="https://github.com/MarkusCrowe/Movies-App" target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a> -->
+        <!-- </nav>  -->
+  
+        <section class="body-container">
+          <article id="result"></article>
+          <ul id="showList"></ul>
+        </section>
+      </main>
+    <!-- <ul id="result"></ul> -->
 
-      <section class="body-container">
-        <article id="allShows"></article>
-        <ul id="showList"></ul>
-      </section>
-    </main>
-
-    <script src="./JS/index.js"></script>
-  </body>
+    <script src="./JS/index-2.js"></script>
+</body>
 </html>

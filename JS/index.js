@@ -1,4 +1,4 @@
-// Variables
+// // Variables
 const results = document.querySelector("body-container");
 let showsData = [];
 let sortMethod = "";
@@ -13,13 +13,15 @@ async function fetchMovie() {
 
     showsData.sort(() => Math.random() - 0.5);
 
-    console.log(showsData[7]);
+    // console.log(showsData[7]);
     displayShows();
 };
 
-// function to display the data, filter it and sort it
+
+
+// // function to display the data, filter it and sort it
 function displayShows() {
-    // showsData.length = 6;
+//     // showsData.length = 6;
     allShows.innerHTML = showsData
         .filter((show) => 
             show.name.toLowerCase().includes(inputSearch.value.toLowerCase()))
@@ -30,21 +32,23 @@ function displayShows() {
                 return b.name.localeCompare(a.name)
             }
         })
-        .map((show) =>
-        `
-            <div class="show">
-                <img src="${show.image.original}">
-                <div class="description">
-                    <h4>${show.name}</h4>
-                    <p>${show.summary}</p>
-                    <p>${show.status}</p>
-                </div>
-            </div>
-        `
+        .map((show) => {
+            return 
+            `
+               <div class="show">
+                   <img src="${show.image.original}">
+                   <div class="description">
+                       <h4>${show.name}</h4>
+                       <p>${show.summary}</p>
+                       <p>${show.status}</p>
+                   </div>
+               </div>
+           `
+        }
     ).join("");
 };
 
-// Function to display the list of the shows
+// // Function to display the list of the shows
 function displayList() {
     showList.innerHTML = showsData
         .sort((a, b) => {
@@ -68,8 +72,19 @@ window.addEventListener("load", () => {
     fetchMovie();
 });
 
-// When anything is written in the input it display the corresponding content
-inputSearch.addEventListener("input", displayShows);
+// // When anything is written in the input it display the corresponding content
+inputSearch.addEventListener("input", (e) => {
+    fetchMovie();
+    console.log(e.target.value);
+});
+
+form.addEventListener("submit", (e) => {
+    console.log(e);
+    e.preventDefault();
+    displayShows();
+})
+
+
 
 // When clicking the button it sort the content in a-z or z-a
 alpha.addEventListener("click", (e) => {
@@ -86,14 +101,14 @@ alpha.addEventListener("click", (e) => {
     }
 });
 
-// Upon clicking the button the content is scrambled
+// // Upon clicking the button the content is scrambled
 scramble.addEventListener("click", (e) => {
     sortMethod = "";
     showsData.sort(() => Math.random() - 0.5);
     displayShows();
 });
 
-// Upon clicking the button display the list of shows
+// // Upon clicking the button display the list of shows
 list.addEventListener("click", (e) => {
     if (clickButtonList === 0) {
         allShows.remove();
@@ -107,3 +122,4 @@ list.addEventListener("click", (e) => {
         location.reload();
     }
 });
+
