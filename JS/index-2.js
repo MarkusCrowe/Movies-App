@@ -52,37 +52,20 @@ function showsDislpay() {
         ).join("");
 };
 
-// function debounce(callback, delay) {
-
-//     let timer = null;
-//     let context = this;
-//     let args = arguments;
-
-//     return function() {
-
-//         clearTimeout(timer);
-//         timer = setTimeout(function(){
-//             callback.apply(context);
-//         }, delay)
-//     }
-// }
-
-// input.addEventListener("keydown", function(){
-//     console.log("test");
-// });
-
-// input.addEventListener("keydown", debounce(() => {
-//     input.addEventListener("click", (e) => {
-//         console.log(e);
-//         // fetchShow(e.target.value);
-//     });
-// }, 700));
-
-input.addEventListener("input", (e) => {
-    fetchShow(e.target.value);
-    console.log(shows);
-})
-
+function debounce(callback, wait) {
+    let timerId;
+    return (...args) => {
+      clearTimeout(timerId);
+      timerId = setTimeout(() => {
+        callback(...args);
+      }, wait);
+    };
+  }
+  
+input.addEventListener('input', debounce(() => {
+    console.log(input.value);
+    fetchShow(input.value);
+  }, 750))
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
