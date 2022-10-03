@@ -8,7 +8,7 @@ async function allShow() {
         .then((res) => res.json())
         .then((data) => shows = data)
         
-        console.log(input.value);
+        console.log(shows[1].image);
         allShowsDislpay();
 };
 
@@ -17,7 +17,7 @@ function allShowsDislpay() {
         .map((show) =>
                 `            
                 <div class="show">
-                    <img src="${show.image.original}">
+                <img src='${show.image?.medium || "../Assets/Images/images.png"}'>
                     <div class="description">
                         <h4>${show.name}</h4>
                         <p>${show.summary}</p>
@@ -29,7 +29,7 @@ function allShowsDislpay() {
 };
 
 async function fetchShow(search) {
-        await fetch(`https://api.tvmaze.com/search/shows?q=:${search}`)
+        await fetch(`https://api.tvmaze.com/search/shows?q=${search}`)
         .then((res) => res.json())
         .then((data) => shows = data)
         
@@ -38,10 +38,11 @@ async function fetchShow(search) {
 
 function showsDislpay() {    
         result.innerHTML = shows
+        // .filter((other) => other.show.name.toLowerCase().includes(input.value.toLowerCase()))
         .map((other) => 
              `            
                <div class="show">
-                   <img src="${other.show.image.original}" alt="nothing">
+                <img src='${other.show?.image?.medium || "../Assets/Images/images.png"}'>
                    <div class="description">
                        <h4>${other.show.name}</h4>
                        <p>${other.show.summary}</p>
@@ -63,7 +64,7 @@ function debounce(callback, wait) {
   }
   
 input.addEventListener('input', debounce(() => {
-    console.log(input.value);
+    // console.log(input.value);
     fetchShow(input.value);
   }, 750))
 
